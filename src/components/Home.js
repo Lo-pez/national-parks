@@ -4,25 +4,25 @@ import './Home.css'
 
 const Home = () => {
 	const data = [{
-			name: "Yogi park",
+			name: "park 1",
 			image: 
 				"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
 			text: "test",
 		},
 		{
-			name: "Two Yogi park",
+			name: "park 2",
 			image: 
 				"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
 			text: "test1",	
 		},
 		{
-			name: "Three Yogi park",
+			name: "park 3",
 			image: 
 				"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
 			text: "test2",
 		},
 		{
-			name: "Four Yogi park",
+			name: "park 4",
 			image: 
 				"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
 			text: "test3",
@@ -52,10 +52,11 @@ const Home = () => {
 			<div className="container">
 				<div className="newInformation">
 					<label>Search for an activity</label>
-					<input type="text" className="field" placeholder="Enter an activity..." 
-					activity-search onChange={activityChangeHandler}></input>
+					<form className="form-inline my-2 my-lg-0">
+		      			<input className="form-control mr-sm-2" type="search" onChange={activityChangeHandler} placeholder="Enter an activity..." aria-label="Search"></input>
+		      			<button onClick={newInformationHandler}>Search</button>
+		    		</form>
 				</div>
-					<button onClick={newInformationHandler}>Add info</button>
 					{informations.map((location) => (
 					<Information 
 					name={location.name} 
