@@ -2,26 +2,31 @@ import React, {useState} from 'react'
 import Information from './Information'
 import './Home.css'
 
-const Home = () => {
+function Home() {
 	const data = [{
+			id: "1",
 			name: "park 1",
 			image: 
 				"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
 			text: "test",
 		},
 		{
+			id: "2",			
 			name: "park 2",
 			image: 
 				"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
 			text: "test1",	
 		},
 		{
+
+			id: "3",
 			name: "park 3",
 			image: 
 				"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
 			text: "test2",
 		},
 		{
+			id: "4",
 			name: "park 4",
 			image: 
 				"https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
@@ -39,12 +44,21 @@ const Home = () => {
 		    setLocation("");
 		}
 
-		const locationChangeHandler = (event) => {
-			setLocation(event.target.value);
-		}
+		// const locationChangeHandler = (event) => {
+		// 	setLocation(event.target.value);
+		// }
 		const activityChangeHandler = (event) => {
 			setActivity(event.target.value);
 		}
+
+		 const listItems = informations.map((location) =>
+			<Information 
+			key = {location.id.toString()}
+			name={location.name} 
+			image={location.image} 
+			text={location.text}
+			/>
+		 );
 
 
 	return (
@@ -56,14 +70,8 @@ const Home = () => {
 		      			<input className="form-control mr-sm-2" type="search" onChange={activityChangeHandler} placeholder="Enter an activity..." aria-label="Search"></input>
 		      			<button onClick={newInformationHandler}>Search</button>
 		    		</form>
-				</div>
-					{informations.map((location) => (
-					<Information 
-					name={location.name} 
-					image={location.image} 
-					text={location.text}
-					/>
-				))}
+				</div >
+					{listItems}
 			</div>
 		</div>
 	);
