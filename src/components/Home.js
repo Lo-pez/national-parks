@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Information from './Information'
 import './Home.css'
+import FetchFromAPI from './FetchFromAPI'
 
 function Home() {
 	const data = [{
@@ -72,6 +73,7 @@ function Home() {
 		    		</form>
 				</div >
 					{listItems}
+					<FetchFromAPI category="activities/parks"/>
 			</div>
 		</div>
 	);

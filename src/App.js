@@ -1,14 +1,13 @@
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './components/Home'
-import Activities from './components/Activities'
+import Script from './components/Script'
 
 
 function App() {
   return (
     <div>
         <Header />
-        <Activities />
         <Home />
         <Footer />
     </div>

@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 
-function Activities() {
+function FetchFromAPI( { category } ) {
 	require('dotenv').config()
 	const api_key = process.env.REACT_APP_NPS_API;
 	const [loading, setLoading] = useState(false);
 
 
-	const [activities, setActivities] = useState([]);
+	const [jsonData, setJsonData] = useState([]);
 
 
-	const fetchActivitiesList = useCallback(() => {
-		var url = 'https://developer.nps.gov/api/v1/activities?api_key=' + api_key;
+	const fetchData = useCallback(() => {
+		var url = 'https://developer.nps.gov/api/v1/' + category + '?api_key=' + api_key;
 
 		var res = new XMLHttpRequest();
 		res.open("GET", url);
@@ -20,21 +20,21 @@ function Activities() {
 		res.setRequestHeader("accept", "application/json");
 		// setActivities(res.responseText)
 
-		res.onreadystatechange = function () {
+		res.onreadystatechange = function (){
 		   if (res.readyState === 4) {
 		      // console.log(res.status);
 		      console.log('response', this.response.data);
-		      setActivities(this.response.data);
+		      setJsonData(this.response.data);
 		   }};
 		res.send();
-	}, [api_key],
+	}, [api_key, category],
 	);
 
 	useEffect(() => {
 		setLoading(true);
-		fetchActivitiesList()
+		fetchData()
 		setLoading(false);
-	}, [fetchActivitiesList]);
+	}, [fetchData]);
 
   if (loading) {
     return <p>Data is loading...</p>;
@@ -42,13 +42,9 @@ function Activities() {
 
 	return (
 		<div>
-        {activities.map((act, index) => (
-          <div key={index}>
-            <h2>{act.name}</h2>
-          </div>
-        ))}
+			{JSON.stringify(jsonData, null, 2)}
 		</div>
 	)
 }
 
-export default Activities
+export default FetchFromAPI
