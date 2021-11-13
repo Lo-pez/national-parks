@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import Information from './Information'
 import './Home.css'
-import FetchFromAPI from './FetchFromAPI'
+import FetchFromAPI from './API/FetchFromAPI'
+// import Script from './Script'
 
 function Home() {
 	const data = [{
@@ -61,6 +62,8 @@ function Home() {
 			/>
 		 );
 
+		 // const element = <Script category="activities" />
+
 
 	return (
 	    <div>
@@ -72,8 +75,7 @@ function Home() {
 		      			<button onClick={newInformationHandler}>Search</button>
 		    		</form>
 				</div >
-					{listItems}
-					<FetchFromAPI category="activities/parks"/>
+
 			</div>
 		</div>
 	);
