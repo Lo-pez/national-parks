@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import SearchBar from './search'; 
+import FilterActivities from './FilterActivities'
 
-const ActivitiesCard = (props) => {
-  console.log(props.activities);
+
+const ActivitiesList = (props) => {
+  const { search } = window.location;
+  const query = new URLSearchParams(search).get('Act');
+  const [actQuery, setActQuery] = useState(query || '');
+  const filteredActivities = FilterActivities(props.activities, actQuery)
+  
   return (
-    <div className="parksList" names="props.name" parks="props.parks">
-      <div className="container">
-        <div className="row">
-          {props.activities.map((act, index) => 
-            <div className="column" key={index}>
-              <button style={{margin:'5px'}}type="button" className="btn btn-outline-dark">{act.name}</button>
-            </div>
-              )}        
+    <div>
+      <SearchBar
+          actQuery={actQuery}
+          setActQuery={setActQuery}
+      />
+      <div className="parksList" names="props.name" parks="props.parks">
+        <div className="container">
+          <div className="row">
+            {filteredActivities.map((act, index) => 
+              <div className="col-6 col-md-4" key={index}>
+                <button style={{margin:'5px'}}type="button" className="btn btn-outline-dark">{act.name}</button>
+              </div>
+                )}        
+          </div>
         </div>
       </div>
     </div>  
@@ -19,6 +32,6 @@ const ActivitiesCard = (props) => {
 
 
 
-export default ActivitiesCard;
+export default ActivitiesList;
 
 

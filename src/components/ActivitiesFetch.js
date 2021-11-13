@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import ActivitiesCard from './ActivitiesCard';
+import ActivitiesList from './ActivitiesCard';
 
 import axios from 'axios';
 
@@ -23,7 +23,7 @@ function ActivitiesFetch() {
 	}, [api_root, category, api_key]);
 	
 const element = 
-	<ActivitiesCard 
+	<ActivitiesList 
 		activities = {activities}
 	/>;
 
