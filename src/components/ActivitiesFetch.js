@@ -22,14 +22,14 @@ function ActivitiesFetch() {
 			})
 	}, [api_root, category, api_key]);
 	
-const element = 
-	<ActivitiesList 
-		activities = {activities}
-	/>;
+	const ActivitiesElement = 
+		<ActivitiesList 
+			activities = {activities}
+		/>;
 
 	return (
 		<div className="container" name="activities.name" id="activities.id" parks="parks">
-    		{element}
+    		{ActivitiesElement}
 		</div>
 		)
 	}
