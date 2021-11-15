@@ -10,7 +10,7 @@ const ActivitiesList = (props) => {
   const [actQuery, setActQuery] = useState(query || '');
   const filteredActivities = FilterActivities(props.activities, actQuery)
   
-  const ActivitiesElement =       <AvailableParks ActivitiesData={filteredActivities} />;
+  const ActivitiesElement = <AvailableParks ActivitiesData={filteredActivities} />;
   return (
     <div>
       <SearchBar
