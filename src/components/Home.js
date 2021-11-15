@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import Information from './Information'
-import './Home.css'
 
 function Home() {
 	return (

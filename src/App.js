@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './components/Home'
 import ActivitiesFetch from './components/ActivitiesFetch'
+import Parks from './components/Parks'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route exact path ="/" element={<Home/>}></Route>
             <Route exact path ="/activities" element={<ActivitiesFetch/>}></Route>
+            <Route exact path ="/parks" element={<Parks/>}></Route>
           </Routes>
           <Footer />
         </div>
