@@ -1,11 +1,9 @@
-import {useState} from 'react'
-
 function Home() {
 	return (
 	    <div>
 			<div className="container">
-				<div className="newInformation">
-				Make a welcome page here
+				<div className="title" style={{margin:"center"}}>
+					<h4>Seach for an activity!</h4>
 				</div >
 			</div>
 		</div>
