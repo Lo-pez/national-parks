@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import Information from './Information'
+import {useState} from 'react'
 
 function Home() {
 	return (

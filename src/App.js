@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './components/Home'
-import ActivitiesFetch from './components/ActivitiesFetch'
-import Parks from './components/Parks'
-
+import FetchHandler from './components/FetchHandler'
+// import ActivitiesFetch from './components/ActivitiesFetch'
+// import ParksFetch from './components/ParksFetch'
 
 function App() {
   return (
@@ -16,8 +16,7 @@ function App() {
           <Header />
           <Routes>
             <Route exact path ="/" element={<Home/>}></Route>
-            <Route exact path ="/activities" element={<ActivitiesFetch/>}></Route>
-            <Route exact path ="/parks" element={<Parks/>}></Route>
+            <Route exact path ="/activities" element={<FetchHandler />}></Route>
           </Routes>
           <Footer />
         </div>
@@ -27,4 +26,7 @@ function App() {
 }
 
 export default App;
+
+            // <Route exact path ="/activities" element={<ActivitiesFetch/>}></Route>
+            // <Route exact path ="/parks" element={<ParksFetch/>}></Route>
 
